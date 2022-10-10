@@ -5,6 +5,7 @@ import SearchResults from './components/pages/searchResults/searchResults'
 import Detail from './components/pages/Detail/detail'
 import { Link, Route } from 'wouter';
 import StaticContext from './context/StaticContext'
+import { GifsContextProvider } from './context/GifsContext';
 
 export default function App() {
   return (
@@ -19,11 +20,13 @@ export default function App() {
           <Link to='/'>
             <h1>Home</h1>
           </Link>
-          <Route path='/' component={Home} />
-          <Route path='/search/:keyword' component={SearchResults} />
-          <Route path='gif/:id' component={Detail} />
+          <GifsContextProvider>
+            <Route path='/' component={Home} />
+            <Route path='/search/:keyword' component={SearchResults} />
+            <Route path='/gif/:id' component={Detail} />
+          </GifsContextProvider>
         </section>
       </div >
-    </StaticContext.Provider >
+    </StaticContext.Provider>
   )
 }
