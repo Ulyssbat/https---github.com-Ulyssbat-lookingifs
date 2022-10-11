@@ -1,5 +1,5 @@
 import React from "react";
-import Gif from "./gif/gif";
+import Gif from "../gif/gif";
 
 export default function ListOfGifs({ gifs }) {
   return <div className='ListOfGifs'>

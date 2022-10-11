@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useLocation } from 'wouter';
-import ListOfGifs from '../../list-of-gifs';
-import { useGifs } from '../../hooks/useGifs';
+import ListOfGifs from '../../listOfGifs/list-of-gifs';
+import { useGifs } from '../../../hooks/useGifs';
 
 export default function Home() {
   const [keyword, setKeyword] = useState('');
   const [disabledButton, setDisabledButton] = useState(true);
   const [location, setLocation] = useLocation()
-  const { loading, gifs } = useGifs()
+  const { gifs } = useGifs()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,6 +34,9 @@ export default function Home() {
       </form>
       <h3>Ultima busqueda</h3>
       <ListOfGifs gifs={gifs} />
+      <div>
+        <h3>Categorias populares</h3>
+      </div>
     </>
   )
 }
